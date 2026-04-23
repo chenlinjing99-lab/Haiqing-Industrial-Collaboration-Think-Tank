@@ -10,23 +10,19 @@
 
     <style>
         :root {
-            /* 完全回归参考图的温柔高级色系 */
-            --bg-base: #F7F5F0; /* 极具质感的暖米白色背景 */
-            --bg-card: #FFFFFF; /* 纯白内容卡片 */
-            
-            --accent-main: #00B08F; /* 智库绿，作为点睛之笔 */
-            --accent-sub: #005BAC; /* 智库蓝 */
-            
-            /* 绝对看得清的文字颜色 */
-            --text-dark: #2B333B; /* 极深灰黑，保证阅读清晰度 */
-            --text-gray: #7A8794; /* 高级次要灰 */
+            --bg-base: #F7F5F0; 
+            --bg-card: #FFFFFF; 
+            --accent-main: #00B08F; 
+            --accent-sub: #005BAC; 
+            --text-dark: #2B333B; 
+            --text-gray: #7A8794; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body { 
             font-family: "PingFang SC", "SF Pro Text", serif; 
-            background-color: #E6E2D6; /* 浏览器外围底色 */
+            background-color: #E6E2D6; 
             color: var(--text-dark); 
             line-height: 1.8;
             display: flex; justify-content: center;
@@ -39,34 +35,20 @@
             box-shadow: 0 0 40px rgba(0,0,0,0.08);
         }
 
-        /* --- 1. 顶部纯净 Logo 区 --- */
-        .top-brand {
-            padding: 40px 24px 20px;
-            background: var(--bg-base);
-            text-align: left;
-        }
-        .brand-flex {
-            display: flex; align-items: center; margin-bottom: 10px;
-        }
-        .brand-logo {
-            width: 50px; /* Logo 大小适中 */
-            height: auto; margin-right: 15px;
-        }
-        .brand-title {
-            font-size: 24px; font-weight: 800; color: var(--text-dark); letter-spacing: 1px; line-height: 1.2;
-        }
-        .brand-desc {
-            font-size: 13px; color: var(--text-gray); font-weight: 500;
-        }
+        /* --- 1. 顶部 Logo & 标题区 --- */
+        .top-brand { padding: 40px 24px 20px; background: var(--bg-base); text-align: left; }
+        .brand-flex { display: flex; align-items: center; margin-bottom: 10px; }
+        .brand-logo { width: 50px; height: auto; margin-right: 15px; }
+        .brand-title { font-size: 24px; font-weight: 800; color: var(--text-dark); letter-spacing: 1px; line-height: 1.2; }
+        .brand-desc { font-size: 13px; color: var(--text-gray); font-weight: 500; }
 
-        /* --- 2. 视觉头图与重叠圆 (完全还原参考图) --- */
+        /* --- 2. 视觉头图区 (背景图.jpg) --- */
         .hero-image {
             position: relative; width: 100%; height: 380px;
-            background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop') center/cover;
-            border-bottom-left-radius: 60px; /* 杂志风单边大圆角 */
+            background: url('背景图.jpg') center/cover no-repeat;
+            border-bottom-left-radius: 60px;
         }
         
-        /* 完美的重叠白圈，尺寸恰到好处 */
         .overlap-circle {
             position: absolute; bottom: -30px; right: 24px;
             width: 150px; height: 150px; background: var(--bg-card); border-radius: 50%;
@@ -78,52 +60,36 @@
         .overlap-circle b { font-size: 12px; font-weight: 700; color: var(--text-dark); line-height: 1.6; margin-bottom: 4px; }
         .overlap-circle span { font-size: 10px; color: var(--accent-main); }
 
-        /* --- 页面排版体系 --- */
+        /* --- 内容排版 --- */
         .content-padding { padding: 50px 24px 20px; position: relative; z-index: 1; }
-        
-        /* 参考图标题样式：圆点 + 标题 + 英文 */
         .section-header { margin-bottom: 20px; }
         .title-flex { display: flex; align-items: center; }
         .title-dot { width: 14px; height: 14px; background: var(--accent-main); border-radius: 50%; margin-right: 12px; }
         .section-header h2 { font-size: 20px; font-weight: 800; color: var(--text-dark); }
         .en-title { display: block; font-size: 10px; color: #B0BEC5; text-transform: uppercase; letter-spacing: 2px; font-family: serif; margin-left: 26px; margin-top: 2px; }
-
         .body-text { font-size: 13.5px; color: var(--text-gray); line-height: 2; text-align: justify; margin-bottom: 20px; }
-        
-        /* 机制高亮 */
-        .mechanism-box {
-            background: var(--bg-card); border: 1px solid rgba(0,0,0,0.04);
-            padding: 16px; border-radius: 12px; text-align: center;
-            font-size: 13px; font-weight: 700; color: var(--accent-sub); margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-        }
+        .mechanism-box { background: var(--bg-card); border: 1px solid rgba(0,0,0,0.04); padding: 16px; border-radius: 12px; text-align: center; font-size: 13px; font-weight: 700; color: var(--accent-sub); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
 
-        /* --- 核心服务 (极简图标阵列) --- */
+        /* 核心服务网格 */
         .icon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 15px; margin-top: 25px; }
         .icon-item { text-align: center; }
-        .icon-circle {
-            width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 12px;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 24px; color: var(--accent-main);
-            border: 1px solid var(--accent-main); background: transparent;
-        }
-        /* 还原参考图的“唯一实心”焦点设计 */
+        .icon-circle { width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 12px; display: flex; justify-content: center; align-items: center; font-size: 24px; color: var(--accent-main); border: 1px solid var(--accent-main); }
         .icon-item:nth-child(2) .icon-circle { background: var(--accent-main); color: var(--bg-card); border: none; box-shadow: 0 6px 15px rgba(0, 176, 143, 0.2); }
         .icon-item h4 { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
         .icon-item p { font-size: 11.5px; color: var(--text-gray); line-height: 1.5; width: 95%; margin: 0 auto; }
 
-        /* --- 平台优势 --- */
+        /* 优势列表 */
         .adv-list { margin-top: 20px; }
         .adv-item { display: flex; align-items: flex-start; margin-bottom: 18px; }
         .adv-item i { font-size: 24px; color: var(--accent-main); margin-right: 15px; margin-top: 2px; }
         .adv-item h4 { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; color: var(--text-dark); }
         .adv-item p { font-size: 13px; color: var(--text-gray); line-height: 1.6; }
 
-        /* --- 阵地布局 (还原拱门排版) --- */
+        /* --- 阵地布局 (插图.jpg) --- */
         .staggered-section { background: var(--bg-card); border-radius: 40px 40px 0 0; padding: 50px 24px 30px; margin-top: 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.02); }
         .img-card {
             width: 100%; height: 220px; border-radius: 120px 120px 0 0; 
-            background: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800&auto=format&fit=crop') center/cover;
+            background: url('插图.jpg') center/cover no-repeat;
             margin-bottom: 25px;
         }
         
@@ -131,19 +97,16 @@
         .list-dot { width: 6px; height: 6px; background: var(--accent-main); border-radius: 50%; margin-top: 8px; margin-right: 12px; flex-shrink: 0; }
         .list-content h4 { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; color: var(--text-dark); }
         .list-content p { font-size: 13px; color: var(--text-gray); line-height: 1.6; }
-        .layout-summary {
-            text-align: center; font-size: 13px; font-weight: 700; color: var(--accent-sub);
-            padding: 15px; background: rgba(0, 91, 172, 0.04); border-radius: 8px; margin-top: 10px;
-        }
+        .layout-summary { text-align: center; font-size: 13px; font-weight: 700; color: var(--accent-sub); padding: 15px; background: rgba(0, 91, 172, 0.04); border-radius: 8px; margin-top: 10px; }
 
-        /* --- 服务对象 --- */
+        /* 服务对象网格 */
         .target-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
         .target-card { background: var(--bg-card); padding: 18px 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
         .target-card h4 { font-size: 13.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 5px; display: flex; align-items: center; }
         .target-card h4 i { color: var(--accent-main); margin-right: 6px; font-size: 18px; }
         .target-card p { font-size: 12px; color: var(--text-gray); line-height: 1.5; }
 
-        /* --- 底部区域 --- */
+        /* --- 底部 & 二维码 (二维码.jpg) --- */
         .footer-section { padding: 50px 24px 80px; }
         .vision-box { text-align: center; margin-bottom: 40px; }
         .vision-box h3 { font-size: 16px; font-weight: 800; color: var(--text-dark); margin-bottom: 10px; }
@@ -155,7 +118,8 @@
         .contact-info { display: flex; align-items: center; justify-content: space-between; }
         .contact-info div p { font-size: 12px; color: var(--text-gray); margin-bottom: 8px; display: flex; align-items: flex-start; line-height: 1.5; }
         .contact-info div p i { margin-right: 8px; font-size: 15px; color: var(--accent-main); margin-top: 1px; }
-        .qr-code { width: 80px; height: 80px; background: #F9F9F9; padding: 5px; border-radius: 8px; flex-shrink: 0; margin-left: 15px; border: 1px solid #EEE; }
+        
+        .qr-code { width: 85px; height: 85px; background: #FFF; padding: 5px; border-radius: 8px; flex-shrink: 0; margin-left: 15px; border: 1px solid #EEE; }
 
     </style>
 </head>
@@ -183,15 +147,9 @@
             <div class="title-flex"><div class="title-dot"></div><h2>关于我们</h2></div>
             <span class="en-title">About Us</span>
         </div>
-        <p class="body-text" data-aos="fade-up">
-            海清产业协作智库由海珠区驻清新区对口帮扶协作工作队发起，是专注跨区域产业协作的专业服务平台。
-        </p>
-        <p class="body-text" data-aos="fade-up">
-            智库立足海珠·清新对口协作，依托两地共建产业园区——清远经济开发区和反向飞地“清新—海珠产业投资促进中心”，以海珠生产性服务业赋能清新制造业高质量发展，推动两业深度融合，构建跨区域产业协作双向赋能新格局。
-        </p>
-        <div class="mechanism-box" data-aos="fade-up">
-            运行机制：园区出题 &rarr; 智库响应 &rarr; 资源解题
-        </div>
+        <p class="body-text" data-aos="fade-up">海清产业协作智库由海珠区驻清新区对口帮扶协作工作队发起，是专注跨区域产业协作的专业服务平台。</p>
+        <p class="body-text" data-aos="fade-up">智库立足海珠·清新对口协作，依托两地共建产业园区——清远经济开发区和反向飞地“清新—海珠产业投资促进中心”，按照 “园区出题、智库破题、资源解题” 的运行机制，以海珠生产性服务业赋能清新制造业高质量发展，推动两业深度融合，构建跨区域产业协作双向赋能新格局。</p>
+        <div class="mechanism-box" data-aos="fade-up">运行机制：园区出题 &rarr; 智库响应 &rarr; 资源解题</div>
     </div>
 
     <div class="content-padding" style="padding-top: 0;">
@@ -199,60 +157,38 @@
             <div class="title-flex"><div class="title-dot"></div><h2>核心服务</h2></div>
             <span class="en-title">Core Services</span>
         </div>
-        <p class="body-text" style="margin-bottom: 0;" data-aos="fade-up">围绕产业协作全链条需求，智库提供以下服务：</p>
-        
         <div class="icon-grid">
             <div class="icon-item" data-aos="fade-up">
                 <div class="icon-circle"><i class="ph ph-broadcast"></i></div>
                 <h4>信息枢纽</h4>
-                <p>发布产业政策、帮扶动态与企业资讯，打通壁垒。</p>
+                <p>发布产业政策、帮扶动态与企业资讯。</p>
             </div>
             <div class="icon-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-circle"><i class="ph-fill ph-arrows-merge"></i></div>
                 <h4>供需对接</h4>
-                <p>归集企业需求，精准链接海珠金融、咨询、会展资源。</p>
+                <p>归集企业需求，精准链接海珠优质资源。</p>
             </div>
             <div class="icon-item" data-aos="fade-up">
                 <div class="icon-circle"><i class="ph ph-buildings"></i></div>
                 <h4>协同招商</h4>
-                <p>构建海珠总部+清新基地等体系，开展协同招商。</p>
+                <p>构建总部+基地体系，开展协同招商。</p>
             </div>
             <div class="icon-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-circle"><i class="ph ph-lightbulb"></i></div>
                 <h4>智力支持</h4>
-                <p>汇聚专家学者，为区域发展提供决策咨询与规划建议。</p>
-            </div>
-            <div class="icon-item" data-aos="fade-up">
-                <div class="icon-circle"><i class="ph ph-rocket-launch"></i></div>
-                <h4>项目落地</h4>
-                <p>协助项目研判、签约与落地跟踪，提供全周期服务。</p>
-            </div>
-            <div class="icon-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon-circle"><i class="ph ph-users-three"></i></div>
-                <h4>交流活动</h4>
-                <p>举办对接会、推介会、政策解读等，搭建交流平台。</p>
+                <p>汇聚专家学者，提供决策咨询建议。</p>
             </div>
         </div>
     </div>
 
-    <div class="content-padding" style="padding-top: 10px;">
+    <div class="content-padding">
         <div class="section-header" data-aos="fade-up">
             <div class="title-flex"><div class="title-dot"></div><h2>平台优势</h2></div>
             <span class="en-title">Advantages</span>
         </div>
         <div class="adv-list">
-            <div class="adv-item" data-aos="fade-up">
-                <i class="ph-fill ph-target"></i>
-                <div><h4>定位精准</h4><p>紧扣海珠服务与清新制造协作痛点，专注细分领域，务实高效。</p></div>
-            </div>
-            <div class="adv-item" data-aos="fade-up">
-                <i class="ph-fill ph-lightning"></i>
-                <div><h4>资源直达</h4><p>依托帮扶工作队，直通政府、企业、高校等核心资源。</p></div>
-            </div>
-            <div class="adv-item" data-aos="fade-up">
-                <i class="ph-fill ph-user-switch"></i>
-                <div><h4>机制灵活</h4><p>轻量化运营、扁平化决策，快速响应企业与园区实际需求。</p></div>
-            </div>
+            <div class="adv-item" data-aos="fade-up"><i class="ph-fill ph-target"></i><div><h4>定位精准</h4><p>紧扣海珠服务与清新制造协作痛点。</p></div></div>
+            <div class="adv-item" data-aos="fade-up"><i class="ph-fill ph-lightning"></i><div><h4>资源直达</h4><p>直通政府、企业、高校等核心资源。</p></div></div>
         </div>
     </div>
 
@@ -261,67 +197,43 @@
             <div class="title-flex"><div class="title-dot" style="background: var(--accent-sub);"></div><h2>阵地布局</h2></div>
             <span class="en-title">Strategic Layout</span>
         </div>
-
         <div class="img-card" data-aos="fade-up"></div>
-
         <div class="list-item" data-aos="fade-up">
             <div class="list-dot"></div>
-            <div class="list-content">
-                <h4>主阵地：海清产业园</h4>
-                <p>扎根产业一线，贴身服务园区企业。</p>
-            </div>
+            <div class="list-content"><h4>主阵地：清远经济开发区</h4><p>扎根一线，贴身服务园区企业。</p></div>
         </div>
         <div class="list-item" data-aos="fade-up">
             <div class="list-dot"></div>
-            <div class="list-content">
-                <h4>前哨站：广州·琶洲·工美港</h4>
-                <p>清新—海珠产业投资促进中心，立足湾区核心，高效链接优质服务资源。</p>
-            </div>
+            <div class="list-content"><h4>前哨站：广州琶洲工美港</h4><p>立足湾区核心，链接海珠优质资源。</p></div>
         </div>
-        <div class="layout-summary" data-aos="fade-up">
-            两地联动，构建 “前店后厂” 协同格局：<br>海珠窗口聚资源，清新园区落项目。
-        </div>
+        <div class="layout-summary" data-aos="fade-up">两地联动，构建 “前店后厂” 协同格局</div>
     </div>
 
     <div class="content-padding" style="background: var(--bg-card); padding-top: 10px;">
         <div class="section-header" data-aos="fade-up">
             <div class="title-flex"><div class="title-dot"></div><h2>服务对象</h2></div>
-            <span class="en-title">Target Audience</span>
+            <span class="en-title">Target Groups</span>
         </div>
         <div class="target-grid">
-            <div class="target-card" data-aos="fade-up">
-                <h4><i class="ph-fill ph-bank"></i> 政府部门</h4>
-                <p>提供产业研判、政策反馈、协作进展等专业支撑。</p>
-            </div>
-            <div class="target-card" data-aos="fade-up" data-aos-delay="100">
-                <h4><i class="ph-fill ph-factory"></i> 园区企业</h4>
-                <p>免费享受政策解读、需求发布、活动对接等普惠服务。</p>
-            </div>
-            <div class="target-card" data-aos="fade-up">
-                <h4><i class="ph-fill ph-handshake"></i> 海珠服务机构</h4>
-                <p>对接清新制造场景，拓展市场与合作空间。</p>
-            </div>
-            <div class="target-card" data-aos="fade-up" data-aos-delay="100">
-                <h4><i class="ph-fill ph-graduation-cap"></i> 高校院所</h4>
-                <p>推动技术成果转化、人才培养与产业项目落地。</p>
-            </div>
+            <div class="target-card" data-aos="fade-up"><h4><i class="ph-fill ph-bank"></i> 政府部门</h4><p>提供专业支撑。</p></div>
+            <div class="target-card" data-aos="fade-up" data-aos-delay="100"><h4><i class="ph-fill ph-factory"></i> 园区企业</h4><p>享受普惠服务。</p></div>
         </div>
     </div>
 
     <div class="footer-section">
         <div class="vision-box" data-aos="fade-up">
             <h3>发展愿景</h3>
-            <p>打造海珠·清新产业协作标杆平台，<br>做企业看得见、用得上、信得过的产业服务枢纽。</p>
-            <p class="slogan">以智库为桥，让海珠服务赋能清新制造，让清新制造拥抱湾区资源，共筑两业融合发展新典范。</p>
+            <p>打造海珠·清新产业协作标杆平台。</p>
+            <p class="slogan">共筑两业融合发展新典范。</p>
         </div>
 
         <div class="contact-box" data-aos="fade-up">
             <h3>联系我们</h3>
             <div class="contact-info">
                 <div>
-                                      <p><i class="ph-fill ph-wechat-logo"></i> 公众号：海清产业协作智库</p>
+                    <p><i class="ph-fill ph-wechat-logo"></i> 公众号：海清产业协作智库</p>
                 </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=haiqing" class="qr-code" alt="公众号二维码">
+                <img src="二维码.jpg" class="qr-code" alt="公众号二维码">
             </div>
         </div>
     </div>
